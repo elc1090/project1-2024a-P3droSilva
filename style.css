@@ -1,0 +1,43 @@
+.page-title {
+    text-align: center;
+    font-weight: bolder;
+    background-color:lightblue;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    
+}
+
+#main-content h2{
+    text-align: center;
+    font-weight: bolder;
+    background-color:lightblue;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+
+.carousel {
+    overflow: hidden; /* Hide overflowing content */
+    position: absolute; /* Position each slide absolutely */
+    margin: 0 auto; /* Center the carousel */
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.carousel-container {
+    display: flex; /* Display slides in a row */
+    width: 300px; /* Set the width of the carousel */
+    height: 250px; /* Set the height of the carousel */
+    align-items: center;
+}
+
+  /* CSS for individual slides */
+.carousel-item {
+    max-width: 100%; /* Ensure items do not exceed container width */
+    max-height: 100%; /* Ensure items do not exceed container height */
+    text-align: center; /* Center content horizontally */
+    align-items: center;
+    justify-content: center;
+}
