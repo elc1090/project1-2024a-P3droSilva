@@ -3,7 +3,7 @@
 ![Substitua a imagem ao lado por um screenshot do seu projeto](images/preview.gif "Screenshot do projeto")
 
 
-Acesso: [Substitua este texto pela URL para acesso ao site publicado](https://elc1090.github.io/project1-2024a-P3droSilva/)
+Acesso: https://elc1090.github.io/project1-2024a-P3droSilva/
 
 
 #### Desenvolvedor(a)
@@ -13,7 +13,7 @@ Pedro Henrique da Silva Hinerasky - CC
 #### Site/app escolhido
 
 ##### Link
-(https://www.ufsm.br/orgaos-suplementares/inovatec/startups)
+https://www.ufsm.br/orgaos-suplementares/inovatec/startups
 
 ##### Descrição
 O site escolhido apresenta uma lista de sites de empresas incubadas na UFSM. O site no entanto, apenas apresenta a logo de tais sites, sem apresentar nada sobre a empresa em si.
