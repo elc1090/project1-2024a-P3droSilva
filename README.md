@@ -13,7 +13,7 @@ Pedro Henrique da Silva Hinerasky - CC
 #### Site/app escolhido
 
 ##### Link
-[Substitua este texto pela URL do site/app escolhido](https://www.ufsm.br/orgaos-suplementares/inovatec/startups)
+(https://www.ufsm.br/orgaos-suplementares/inovatec/startups)
 
 ##### Descrição
 O site escolhido apresenta uma lista de sites de empresas incubadas na UFSM. O site no entanto, apenas apresenta a logo de tais sites, sem apresentar nada sobre a empresa em si.
