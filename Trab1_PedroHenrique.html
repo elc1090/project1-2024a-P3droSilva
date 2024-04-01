@@ -426,6 +426,7 @@
             <div class="agtech">
                 <h2>Agtech</h2>
                 <div class="carousel">  
+                    <button class="prev-button">&lt;</button>
                     <div class="carousel-container">
                         <div class="carousel-item"><a href="https://www.austertecnologia.com/"><img src="images/agtech/auster.png" alt="Imagem 1" data-text="Combinamos tecnologias de sensoriamento remoto com as informações que você possui da sua lavoura para gerar prescrições de insumo realmente inteligentes."></a></div>
                         <div class="carousel-item"><a href="https://bioagreen.com.br/"><img src="images/agtech/bioagreen.png" alt="Imagem 2" data-text="Unindo a biotecnologia com a agricultura!"></a></div>
@@ -446,12 +447,14 @@
                     <div class="text-container">
                         <span id="carousel-text"></span>
                     </div>
+                    <button class="next-button">&gt;</button>
                 </div>
             </div>
 
             <div class="SoftwareHardware">
                 <h2>Software e Hardware</h2>
                 <div class="carousel">
+                    <button class="prev-button">&lt;</button>
                     <div class="carousel-container">
                         <div class="carousel-item"><a href="https://biodos.com.br/"><img src="images/Software-Hardware/bioDos.png" alt="Imagem 1" data-text="Desenvolvemos soluções em Radiação Ultravioleta em qualquer lugar a baixo custo!"></a></div>
                         <div class="carousel-item"><a href="https://getcommerce.com.br/"><img src="images/Software-Hardware/getCommerce.png" alt="Imagem 3" data-text="A única plataforma de e-commerce inteligente de ponta a ponta"></a></div>
@@ -465,12 +468,14 @@
                     <div class="text-container">
                         <span id="carousel-text"></span>
                     </div>
+                    <button class="next-button">&gt;</button>
                 </div>
             </div>
 
             <div class="Outros">
                 <h2>Outros</h2>
                 <div class="carousel">
+                    <button class="prev-button">&lt;</button>
                     <div class="carousel-container">
                         <div class="carousel-item"><a href="https://auftek.com/"><img src="images/outros/auftek.png" alt="Imagem 1" data-text="Nosso trabalho é focado no desenvolvimento de instrumentos laboratoriais inteligentes para análise microbiológica em tempo real e na instrumentação para ensaio de inversores de frequência."></a></div>
                         <div class="carousel-item"><a href="https://foxiot.com.br/pt_br/"><img src="images/outros/fox.png" alt="Imagem 2" data-text="Tenha controle de seus dados de energia através de medição inteligente em um só lugar!"></a></div>
@@ -485,6 +490,7 @@
                     <div class="text-container">
                         <span id="carousel-text"></span>
                     </div>
+                    <button class="next-button">&gt;</button>
                 </div>
             </div>
             
@@ -597,27 +603,70 @@
         </footer>
 
         <script>
-            // JavaScript for carousel functionality
             var carousels = document.querySelectorAll('.carousel');
         
             carousels.forEach(function(carousel) {
                 var slideIndex = 0;
                 var slides = carousel.querySelectorAll('.carousel-item');
                 var text = carousel.querySelector('#carousel-text');
-                carouselFunction();
+                var timeoutId; // Variable to store timeout ID
+                var timeoutTime = 1500; // Time to wait before changing slide (1500 milliseconds)
         
-                function carouselFunction() {
+                // Function to start the carousel
+                function startCarousel() {
+                    timeoutId = setTimeout(function() {
+                        showSlide(slideIndex + 1); // Show the next slide
+                    }, timeoutTime); // Change slide every 1.5 seconds (1500 milliseconds)
+                }
+
+                // Function to show a specific slide
+                function showSlide(index) {
+                    clearTimeout(timeoutId); // Clear the timeout
+                    slideIndex = (index + slides.length) % slides.length; // Calculate slide index (considering circular carousel)
+                    hideSlides(); // Hide all slides
+                    slides[slideIndex].style.display = "flex"; // Display current slide
+                    text.textContent = slides[slideIndex].querySelector('img').dataset.text; // Set text to current slide's link
+                    startCarousel(); // Restart carousel
+                }
+
+                function hideSlides() {
                     for (var i = 0; i < slides.length; i++) {
                         slides[i].style.display = "none"; // Hide all slides
                     }
-                    slideIndex++;
-                    if (slideIndex > slides.length) { slideIndex = 1 } // Reset slide index if past last slide
-                    slides[slideIndex - 1].style.display = "flex"; // Display current slide
-                    text.textContent = slides[slideIndex - 1].querySelector('img').dataset.text; // Set text to current slide's link
-                    setTimeout(carouselFunction, 2000); // Change slide every 2 seconds (2000 milliseconds)
                 }
+        
+                // Start the carousel initially
+                startCarousel();
+
+                // Add event listener for "Next" button
+                var nextButton = carousel.querySelector('.next-button');
+                nextButton.addEventListener('click', function() {
+                    showSlide(slideIndex + 1); // Show next slide
+                });
+
+                // Add event listener for "Previous" button
+                var prevButton = carousel.querySelector('.prev-button');
+                prevButton.addEventListener('click', function() {
+                    showSlide(slideIndex - 1); // Show previous slide
+                });
+
+        
+                // Pause carousel on mouse enter to individual carousel items
+                slides.forEach(function(slide) {
+                    slide.addEventListener('mouseenter', function() {
+                        clearTimeout(timeoutId); // Clear the timeout to pause the carousel
+                    });
+                });
+
+                // Resume carousel on mouse leave from individual carousel items
+                slides.forEach(function(slide) {
+                    slide.addEventListener('mouseleave', function() {
+                        startCarousel(); // Restart the carousel
+                    });
+                });
             });
         </script>
+        
         
 
 
